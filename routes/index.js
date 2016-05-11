@@ -53,7 +53,7 @@ router.get('/', function(req, res, next) {
     }
   }
 
-  res.render('herbs', data);
+  res.render('index', data);
 });
 
 function db_maintenance(file_name, n_rows) {
