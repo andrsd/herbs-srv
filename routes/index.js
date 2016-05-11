@@ -75,7 +75,6 @@ function db_maintenance(file_name, n_rows) {
 // POST the data
 router.post('/', function(req, res, next) {
   var time = new Date().toISOString();
-  console.log(req.body);
 
   var row = time;
   for (i = 0; i < columns.length; i++) {
