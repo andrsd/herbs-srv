@@ -3,6 +3,8 @@ var router = express.Router();
 var fs = require('fs');
 var columns = [ 'sage', 'thyme', 'chives', 'parsley', 'rosemary', 'basil', 'temperature', 'humidity' ];
 var n_herbs = 6;
+// number of rows to keep in the DB
+var n_db_rows = 12;
 
 var db_file_name = "./data/db";
 
@@ -54,10 +56,25 @@ router.get('/', function(req, res, next) {
   res.render('herbs', data);
 });
 
+function db_maintenance(file_name, n_rows) {
+  var content = fs.readFileSync(file_name).toString().split("\n");
+  if (content.length > n_rows + 1) {
+    // more data rows then we want to store
+    var hdr = content[0];
+    var data = content.slice(content.length - n_rows - 1, content.length - 1);
+
+    var db = fs.openSync(file_name, "w");
+    fs.appendFileSync(db, hdr + "\n");
+    for (i = 0; i < data.length; i++) {
+      fs.appendFileSync(db, data[i] + "\n");
+    }
+    fs.closeSync(db);
+  }
+}
+
 // POST the data
 router.post('/', function(req, res, next) {
   var time = new Date().toISOString();
-  console.log(req.body);
 
   var row = time;
   for (i = 0; i < columns.length; i++) {
@@ -77,6 +94,8 @@ router.post('/', function(req, res, next) {
 
   res.status(200);
   res.end();
+
+  db_maintenance(db_file_name, n_db_rows);
 });
 
 // GET the data from the table
