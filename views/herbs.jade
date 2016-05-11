@@ -1,0 +1,44 @@
+html
+  head
+    script(type='text/javascript', src='https://www.gstatic.com/charts/loader.js')
+    script(type='text/javascript').
+      google.charts.load('current', {'packages':['gauge', 'corechart']});
+      google.charts.setOnLoadCallback(draw);
+      function draw() {
+
+        var moisture_data = google.visualization.arrayToDataTable(!{JSON.stringify(current_data)});
+
+        var moisture_options = {
+          width: 1000, height: 120,
+          redFrom: 0, redTo: 20,
+          yellowFrom: 20, yellowTo: 60
+        };
+
+        var gauges = new google.visualization.Gauge(document.getElementById('gauges'));
+
+        gauges.draw(moisture_data, moisture_options);
+
+
+        var data = new google.visualization.arrayToDataTable(!{JSON.stringify(history)});
+
+        var options = {
+          width: 900,
+          height: 500,
+          legend: { position: 'bottom' },
+          vAxis: {
+            title: 'Moisture level [%]',
+            minValue: 0,
+            maxValue: 100
+          }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('linechart'));
+
+        chart.draw(data, options);
+      }
+  body
+    h1 herbs
+    div(id="gauges", style="width: 1000px; height: 120px;")
+    br
+    br
+    div(id="linechart", style="width: 900px; height: 450px")
