@@ -1,5 +1,8 @@
+doctype html
 html
   head
+    title herbs
+    link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src='https://www.gstatic.com/charts/loader.js')
     script(type='text/javascript').
       google.charts.load('current', {'packages':['gauge', 'corechart', 'line']});
@@ -7,7 +10,6 @@ html
       function draw() {
         var moisture_data = google.visualization.arrayToDataTable(!{JSON.stringify(current_moisture)});
         var moisture_options = {
-          width: 1000, height: 110,
           redFrom: 0, redTo: 20,
           yellowFrom: 20, yellowTo: 60
         };
@@ -54,15 +56,18 @@ html
         temp_chart.draw(temp_data, temp_options);
       }
   body
-    h2 herbs
-    span Temperature:&nbsp;
-      strong= current_temperature
-        span &nbsp;&deg;C
-      span &nbsp;| Humidity:&nbsp;
-        strong= current_humidity
-          span &nbsp;%
-    br
-    br
-    div(id="gauges")
-    div(id="moisturechart")
-    div(id="tempchart")
+    div(id="content")
+      h2 herbs
+      div(id="gauges")
+      div(style="margin-bottom: 20px")
+        span(style="display: inline-block; width: 350px; margin-left: 100px") Temperature:&nbsp;
+          strong= current_temperature
+          | &deg;C
+        span(style="display: inline-block; width: 350px; margin-right: 100px") Humidity:&nbsp;
+          strong= current_humidity
+          |  %
+      div(id="moisturechart")
+      div(id="tempchart")
+
+      div(style="margin-top: 20px; text-align: right; font-size: 80%") Powered by&nbsp;
+        a(href="http://expressjs.com/") Express

@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
+  padding: 5px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#content {
+  width: 900px;
+  margin: auto;
+  text-align: center
+}
+
+#gauges {
+  margin: 0 100px 20px 100px;
+  text-align: center;
 }
