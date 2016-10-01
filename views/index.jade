@@ -49,8 +49,8 @@ html
           },
           vAxes: {
             // Adds titles to each axis.
-            0: {title: 'Temperature (C)'},
-            1: {title: 'Humidity'}
+            0: {title: 'Temperature (C)', minValue: 10, maxValue: 40 },
+            1: {title: 'Humidity', minValue: 0, maxValue: 100 }
           }
         };
         temp_chart.draw(temp_data, temp_options);
