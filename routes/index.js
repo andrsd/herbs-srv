@@ -4,7 +4,7 @@ var fs = require('fs');
 var columns = [ 'sage', 'thyme', 'chives', 'parsley', 'rosemary', 'basil', 'temperature', 'humidity' ];
 var n_herbs = 6;
 // number of rows to keep in the DB
-var n_db_rows = 12;
+var n_db_rows = 24;
 
 var db_file_name = "./data/db";
 
