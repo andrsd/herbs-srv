@@ -19,7 +19,7 @@ html
 
         var data = new google.visualization.arrayToDataTable(!{JSON.stringify(history)});
         var options = {
-        title: 'Moisture levels in last 6 hours',
+        title: 'Moisture levels in last 12 hours',
           width: 900,
           height: 400,
           legend: { position: 'bottom' },
@@ -40,7 +40,7 @@ html
 
         var temp_chart = new google.visualization.LineChart(document.getElementById('tempchart'));
         var temp_options = {
-          title: 'Temperature and humidity in last 6 hours',
+          title: 'Temperature and humidity in last 12 hours',
           width: 900,
           height: 400,
           // Gives each series an axis that matches the vAxes number below.
