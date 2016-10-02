@@ -11,7 +11,8 @@ html
         var moisture_data = google.visualization.arrayToDataTable(!{JSON.stringify(current_moisture)});
         var moisture_options = {
           redFrom: 0, redTo: 20,
-          yellowFrom: 20, yellowTo: 60
+          yellowFrom: 20, yellowTo: 50,
+          greenFrom: 50, greenTo: 100
         };
         var gauges = new google.visualization.Gauge(document.getElementById('gauges'));
         gauges.draw(moisture_data, moisture_options);
