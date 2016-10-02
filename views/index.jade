@@ -20,7 +20,7 @@ html
         var data = new google.visualization.arrayToDataTable(!{JSON.stringify(history)});
         var options = {
         title: 'Moisture levels in last 12 hours',
-          width: 900,
+          width: 800,
           height: 400,
           legend: { position: 'bottom' },
           vAxis: {
@@ -41,7 +41,7 @@ html
         var temp_chart = new google.visualization.LineChart(document.getElementById('tempchart'));
         var temp_options = {
           title: 'Temperature and humidity in last 12 hours',
-          width: 900,
+          width: 800,
           height: 400,
           // Gives each series an axis that matches the vAxes number below.
           series: {
@@ -61,10 +61,10 @@ html
       h2 herbs
       div(id="gauges")
       div(style="margin-bottom: 20px")
-        span(style="display: inline-block; width: 350px; margin-left: 100px") Temperature:&nbsp;
+        span(style="display: inline-block; width: 300px; margin-left: 100px") Temperature:&nbsp;
           strong= current_temperature
           | &deg;C
-        span(style="display: inline-block; width: 350px; margin-right: 100px") Humidity:&nbsp;
+        span(style="display: inline-block; width: 300px; margin-right: 100px") Humidity:&nbsp;
           strong= current_humidity
           |  %
       div(id="moisturechart")

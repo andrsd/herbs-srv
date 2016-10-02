@@ -8,12 +8,12 @@ a {
 }
 
 #content {
-  width: 900px;
+  width: 800px;
   margin: auto;
   text-align: center
 }
 
 #gauges {
-  margin: 0 100px 20px 100px;
+  margin: 0 50px 20px 50px;
   text-align: center;
 }
